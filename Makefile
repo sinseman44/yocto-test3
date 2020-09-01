@@ -1,0 +1,28 @@
+CC ?= gcc
+CFLAGS ?= -fPIC -Wall -Wextra -O2
+LDFLAGS ?= -lmyworld
+EXEC=hello3
+SRC_EXE=src/hello.c
+OBJ_EXE=$(SRC_EXE:.c=.o)
+#LIB_EXE= -L$(PWD) -lmyworld
+PREFIX ?= /usr/local
+
+.PHONY: all mrproper clean install
+
+all: $(EXEC)
+
+$(EXEC): $(OBJ_EXE)
+	@$(CC) -o $@ $^ $(LDFLAGS)
+
+%.o: %.c
+	@$(CC) -o $@ -c $< $(CFLAGS)
+
+clean:
+	@rm -rf $(EXEC) src/*.o
+
+mrproper: clean
+	@rm -f $(EXEC)
+
+install: $(EXEC)
+	@install -d $(DESTDIR)$(PREFIX)/bin/
+	@install -m 755 $(EXEC) $(DESTDIR)$(PREFIX)/bin/
