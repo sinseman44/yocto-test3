@@ -1,6 +1,6 @@
 CC ?= gcc
 CFLAGS ?= -fPIC -Wall -Wextra -O2
-LDFLAGS ?= -lmyworld
+LDFLAGS ?=
 EXEC=hello3
 SRC_EXE=src/hello.c
 OBJ_EXE=$(SRC_EXE:.c=.o)
@@ -11,7 +11,7 @@ PREFIX ?= /usr/local
 all: $(EXEC)
 
 $(EXEC): $(OBJ_EXE)
-	@$(CC) -o $@ $^ $(LDFLAGS)
+	@$(CC) -o $@ $^ -lmyworld $(LDFLAGS)
 
 %.o: %.c
 	@$(CC) -o $@ -c $< $(CFLAGS)
