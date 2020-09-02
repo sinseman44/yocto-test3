@@ -4,7 +4,6 @@ LDFLAGS ?= -lmyworld
 EXEC=hello3
 SRC_EXE=src/hello.c
 OBJ_EXE=$(SRC_EXE:.c=.o)
-#LIB_EXE= -L$(PWD) -lmyworld
 PREFIX ?= /usr/local
 
 .PHONY: all mrproper clean install
