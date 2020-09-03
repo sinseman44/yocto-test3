@@ -11,10 +11,10 @@ PREFIX ?= /usr/local
 all: $(EXEC)
 
 $(EXEC): $(OBJ_EXE)
-	@$(CC) -o $@ $^ -lmyworld $(LDFLAGS)
+	@$(CC) -o $@ $^ $(pkg-config --libs libworld) $(LDFLAGS)
 
 %.o: %.c
-	@$(CC) -o $@ -c $< $(CFLAGS)
+	@$(CC) -o $@ -c $< $(CFLAGS) $(pkg-config --libs libworld)
 
 clean:
 	@rm -rf $(EXEC) src/*.o
