@@ -13,7 +13,7 @@ all: $(EXEC)
 $(EXEC): $(OBJ_EXE)
 	@$(CC) -o $@ $^ $(shell pkg-config --libs libworld) $(LDFLAGS)
 
-%.o: %.c:
+%.o: %.c
 	@$(CC) -o $@ -c $< $(CFLAGS) $(shell pkg-config --cflags libworld)
 
 clean:
