@@ -7,11 +7,11 @@
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=48f929762847f579de6d30e4ce30f228"
 
-SRC_URI = "git://github.com/sinseman44/yocto-test3.git;protocol=https"
+SRC_URI = "git://github.com/sinseman44/yocto-test3.git;protocol=https;branch=test3-2"
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "f94ca7a29cbd99ca36418cbd80f089bad2df4beb"
+SRCREV = "97688f389d2b8d82acb9ae204835e9e769483222"
 
 S = "${WORKDIR}/git"
 
@@ -28,3 +28,4 @@ do_install () {
 	oe_runmake install 'DESTDIR=${D}'
 }
 
+inherit pkgconfig
